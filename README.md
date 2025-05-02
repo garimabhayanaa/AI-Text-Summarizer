@@ -1,7 +1,7 @@
 # AI Text Summarizer  
 
 ## Overview  
-The **AI Text Summarizer** is an intelligent application that leverages **Facebook's BART Large CNN model**, accessed via **Hugging Face**, to condense **long articles, reports, and documents** into **concise summaries**.  
+The **AI Text Summarizer** is a web-based application that utilizes Facebook's BART Large CNN transformer model via the Hugging Face API to generate concise summaries of lengthy documents and articles. Built with a Node.js + Express.js backend and a clean, responsive frontend, the tool helps users efficiently extract key insights without reading the full content.
 
 With this tool, you can:  
 ✅ **Summarize lengthy texts instantly**  
@@ -10,21 +10,21 @@ With this tool, you can:
 ✅ **Save time by avoiding the need to read entire documents**  
 
 ## Features  
-- **AI-Powered Summarization**: Uses **BART Large CNN** to generate **high-quality summaries**.  
-- **Customizable Summary Length**: Adjust the **summary size** based on your preference.  
-- **User-Friendly Interface**: Enter text, click summarize, and get results instantly.  
-- **Supports Various Text Formats**: Works with **articles, reports, research papers, and more**.  
+- **AI-Powered Summarization** : Leverages the BART Large CNN model through Hugging Face to provide high-quality summaries.
+- **Instant Results** : Submit text and receive a concise summary in real time.
+- **Clean User Interface** : Minimalistic UI built using HTML, CSS, and JavaScript.
+- **Efficient Text Handling** : Optimized for summarizing reports, blogs, news articles, research papers, and more.
 
 ## Technologies Used  
-- **Backend**: Python (Flask)  
+- **Backend**: Node.js, Express.js
 - **AI Model**: Facebook’s **BART Large CNN (via Hugging Face)**  
-- **Frontend**: Streamlit (for a simple and interactive UI)  
-- **Deployment**: Hugging Face API for text processing  
-
+- **Frontend**: HTML, CSS, JavaScript
+- **Deployment**: Vercel (Frontend), Hugging Face API (Text Processing)
+  
 ## Installation  
 
 ### Prerequisites  
-- **Python 3.7+** installed  
+- Node.js and npm installed  
 
 ### Steps  
 1. **Clone the Repository:**  
@@ -33,12 +33,16 @@ With this tool, you can:
    cd AI-Text-Summarizer
 2. **Install Dependencies:**
    ```bash
-    pip install -r requirements.txt
-3. **Run the Application:**
+    npm install
+3. **Add Your Hugging Face API Key**
+   Create a .env file in the root directory:
     ```bash
-    python app.py
-4. **Access the Application:**
-    Open your browser and visit http://localhost:8501 to use the summarizer.
+    HUGGINGFACE_API_KEY=your_api_key_here
+4. **Start the Server:**
+    node app.js
+5. **Access the Application:**
+   Open your browser and navigate to:
+      http://localhost:3000
 
 ## Usage
 1. Input a long article, document, or report.
