@@ -345,64 +345,6 @@ textarea:focus {
       </div>
     </div>
 
-    <script>
-      // Get selected function and tone
-      function getSelectedFunction() {
-        const activeBtn = document.querySelector('.function-btn.active');
-        return activeBtn ? activeBtn.dataset.function : 'summarize';
-      }
-
-      function getSelectedTone() {
-        const activeBtn = document.querySelector('.tone-btn.active');
-        return activeBtn ? activeBtn.dataset.tone : 'standard';
-      }
-
-      // Handle function button clicks
-      document.querySelectorAll('.function-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          // Remove active class from all function buttons
-          document.querySelectorAll('.function-btn').forEach(b => b.classList.remove('active'));
-          // Add active class to clicked button
-          this.classList.add('active');
-          
-          // Update placeholder text
-          const textarea = document.getElementById('text_to_summarize');
-          const outputTextarea = document.getElementById('summary');
-          const selectedFunction = this.dataset.function;
-          
-          if (selectedFunction === 'summarize') {
-            textarea.placeholder = 'Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)';
-            outputTextarea.placeholder = 'Summarized text will appear here';
-          } else {
-            textarea.placeholder = 'Paste text to paraphrase. (Minimum length is 200 chars. Maximum length is 100,000 chars.)';
-            outputTextarea.placeholder = 'Paraphrased text will appear here';
-          }
-        });
-      });
-
-      // Handle tone button clicks
-      document.querySelectorAll('.tone-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          // Remove active class from all tone buttons
-          document.querySelectorAll('.tone-btn').forEach(b => b.classList.remove('active'));
-          // Add active class to clicked button
-          this.classList.add('active');
-        });
-      });
-
-      // Handle submit button (placeholder for your existing functionality)
-      document.getElementById('submit-button').addEventListener('click', function() {
-        const selectedFunction = getSelectedFunction();
-        const selectedTone = getSelectedTone();
-        const textToProcess = document.getElementById('text_to_summarize').value;
-        
-        console.log('Function:', selectedFunction);
-        console.log('Tone:', selectedTone);
-        console.log('Text:', textToProcess);
-        
-        // Add your processing logic here
-        // This is where you'd integrate with your existing script.js functionality
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
