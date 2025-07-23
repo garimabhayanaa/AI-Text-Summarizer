@@ -60,7 +60,7 @@ function submitData(e) {
   };
   
   // Make API call
-  fetch('/summarize', requestOptions)
+  fetch('/inference', requestOptions)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
