@@ -15,7 +15,7 @@ async function runInference(text, task = 'summarize', tone = 'standard') {
   const config = {
     method: 'post',
     maxBodyLength: Infinity,
-    url: 'https://api-inference.huggingface.co/models/google/flan-t5-large',
+    url: 'https://api-inference.huggingface.co/models/facebook/bart-large-cnn',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${process.env.ACCESS_TOKEN}`
