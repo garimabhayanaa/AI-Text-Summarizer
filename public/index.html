@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>AI Text Summarizer</title>
-    <link rel="stylesheet" href="stylesheet.css">   
+    <link rel="stylesheet" href="stylesheet.css" />
   </head>
   <body>
     <h1>AI Text Summarizer</h1>
-    <p> Why read a 1000 lines when we can shorten the text to a few. <br/> Artificial Intelligence at your assistance! </p>
-    <p> Enter your text and click the "Summarize" button. </p>
+    <p>
+      Why read a 1000 lines when we can shorten the text to a few? <br />
+      Artificial Intelligence at your assistance!
+    </p>
+    <p>Enter your text and click the "Summarize" or "Paraphrase" button.</p>
+
+    <!-- New Navbar Section -->
+    <div class="navbar" style="margin-bottom: 20px;">
+      <label for="function">Function:</label>
+      <select id="function">
+        <option value="summarize" selected>Summarize</option>
+        <option value="paraphrase">Paraphrase</option>
+      </select>
+
+      <label for="tone" style="margin-left: 20px;">Tone:</label>
+      <select id="tone">
+        <option value="standard" selected>Standard</option>
+        <option value="formal">Formal</option>
+        <option value="casual">Casual</option>
+        <option value="professional">Professional</option>
+        <option value="concise">Concise</option>
+        <option value="friendly">Friendly</option>
+        <option value="witty">Witty</option>
+      </select>
+    </div>
+
     <div class="container">
       <div class="text-box">
-        <textarea id="text_to_summarize" name="text_to_summarize" placeholder="Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)" maxlength="100000"></textarea>
-        <button id="submit-button" class="submit-button" >
-          <span class="submit-button-text">Summarize</span>
+        <textarea
+          id="text_to_summarize"
+          name="text_to_summarize"
+          placeholder="Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)"
+          maxlength="100000"
+        ></textarea>
+        <button id="submit-button" class="submit-button">
+          <span class="submit-button-text">Go</span>
         </button>
       </div>
-      <div class="text-box"> 
-      <textarea id="summary" name="summarized_text" placeholder="Summarized text will appear here"> </textarea>
+      <div class="text-box">
+        <textarea
+          id="summary"
+          name="summarized_text"
+          placeholder="Summarized or paraphrased text will appear here"
+        ></textarea>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

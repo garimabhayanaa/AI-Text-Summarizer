@@ -1,30 +1,26 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const summarizeText = require('./summarize.js');
+const runInference = require('./inference.js'); // or './inference.js'
 
-// Parses JSON bodies (as sent by API clients)
 app.use(express.json());
-
-// Serves static files from the 'public' directory
 app.use(express.static('public'));
 
-app.post('/summarize', (req, res) => {
+app.post('/inference', async (req, res) => {
+  const { text, task, tone } = req.body;
 
-  // get the text_to_summarize property from the request body
-  const text = req.body.text_to_summarize;
+  if (!text || !task || !tone) {
+    return res.status(400).send("Missing 'text', 'task', or 'tone'");
+  }
 
-  // call your summarizeText function, passing in the text from the request
-  summarizeText(text)
-    .then(response => {
-      res.send(response); // Send the summary text as a response to the client
-    })
-    .catch(error => {
-      console.log(error.message);
-    });
+  try {
+    const output = await runInference(text, task, tone);
+    res.send(output);
+  } catch (error) {
+    res.status(500).send('Internal server error');
+  }
 });
 
-// Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
