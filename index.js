@@ -1,7 +1,22 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
 const runInference = require('./inference.js'); 
+
+// CORS setup for Vercel frontend
+const allowedOrigins = ['https://ai-textsummarizer.vercel.app'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -17,6 +32,7 @@ app.post('/inference', async (req, res) => {
     const output = await runInference(text, task, tone);
     res.send(output);
   } catch (error) {
+    console.error(error);
     res.status(500).send('Internal server error');
   }
 });
