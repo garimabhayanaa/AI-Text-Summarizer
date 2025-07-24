@@ -60,7 +60,7 @@ function submitData(e) {
   };
   
   // Make API call
-  fetch('/inference', requestOptions)
+  fetch('https://synthtext.onrender.com/inference', requestOptions)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
