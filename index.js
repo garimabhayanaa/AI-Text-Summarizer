@@ -22,13 +22,13 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.post('/inference', async (req, res) => {
+  console.log('/inference route hit');
   const { text, task, tone } = req.body;
-
   if (!text || !task || !tone) {
     return res.status(400).send("Missing 'text', 'task', or 'tone'");
   }
-
   try {
+    console.log('starting running inference.js')
     const output = await runInference(text, task, tone);
     res.send(output);
   } catch (error) {
