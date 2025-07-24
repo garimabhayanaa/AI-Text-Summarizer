@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const runInference = require('./inference.js'); 
 
 // CORS setup for Vercel frontend
-const allowedOrigins = ['https://ai-textsummarizer.vercel.app'];
+const allowedOrigins = ['https://synthtext-garima-bhayanas-projects.vercel.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
