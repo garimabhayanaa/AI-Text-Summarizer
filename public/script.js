@@ -134,8 +134,3 @@ document.addEventListener('DOMContentLoaded', function() {
   textArea.placeholder = 'Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)';
   summarizedTextArea.placeholder = 'Summarized text will appear here';
 });
-  
-  // Set initial placeholder text
-  textArea.placeholder = 'Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)';
-  summarizedTextArea.placeholder = 'Summarized text will appear here';
-});
