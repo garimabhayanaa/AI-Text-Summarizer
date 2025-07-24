@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const runInference = require('./inference.js'); // or './inference.js'
+const runInference = require('./inference.js'); 
 
 app.use(express.json());
 app.use(express.static('public'));
