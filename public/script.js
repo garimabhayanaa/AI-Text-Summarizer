@@ -42,11 +42,11 @@ function submitData(e) {
   const tone = getSelectedTone();
   const func = getSelectedFunction();
   
-  // Create payload
+  // Create payload with correct keys to match backend expectations
   const payload = JSON.stringify({
-    text_to_summarize,
-    tone,
-    function: func // summarize or paraphrase
+    text: text_to_summarize,  // ✅ Changed from 'text_to_summarize' to 'text'
+    task: func,               // ✅ Changed from 'function' to 'task'
+    tone: tone
   });
   
   // Request options
@@ -129,6 +129,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (defaultToneBtn && !document.querySelector('.tone-btn.active')) {
     defaultToneBtn.classList.add('active');
   }
+  
+  // Set initial placeholder text
+  textArea.placeholder = 'Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)';
+  summarizedTextArea.placeholder = 'Summarized text will appear here';
+});
   
   // Set initial placeholder text
   textArea.placeholder = 'Paste text to summarize. (Minimum length is 200 chars. Maximum length is 100,000 chars.)';
