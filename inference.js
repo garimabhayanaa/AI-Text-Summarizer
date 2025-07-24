@@ -3,7 +3,7 @@ require('dotenv').config();
 
 async function runInference(text, task = 'summarize', tone = 'standard') {
   const prompt = `${capitalize(task)} this text in a ${tone} tone: ${text}`;
-
+  console.log("Prompt sent to Hugging Face:", prompt);
   const data = JSON.stringify({
     inputs: prompt,
     parameters: {
@@ -11,7 +11,7 @@ async function runInference(text, task = 'summarize', tone = 'standard') {
       temperature: 0.7
     }
   });
-
+  console.log("ACCESS_TOKEN:", process.env.ACCESS_TOKEN ? "SET" : "NOT SET");
   const config = {
     method: 'post',
     maxBodyLength: Infinity,
@@ -25,7 +25,8 @@ async function runInference(text, task = 'summarize', tone = 'standard') {
 
   try {
     const response = await axios.request(config);
-    return response.data[0].generated_text;
+    console.log(" Hugging Face response:", response.data);
+    return response.data[0].summary_text;
   } catch (error) {
     console.error('Inference error:', error.message);
     return 'Something went wrong. Please try again.';
